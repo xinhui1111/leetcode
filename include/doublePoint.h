@@ -20,6 +20,15 @@ int maxArea3(vector<int> &height);
 int maxArea4(vector<int> &height);
 
 //其他双指针的算法
+/*
+ * 给你两个数 hour 和 minutes 。请你返回在时钟上，由给定时间的时针和分针组成的较小角的角度（60 单位制）。
+ * 360/12=30   15   180-15=165
+ * 30/60=0.5 12*0.5=6     (6-12+12)mod 12=6对应了6*30=180   偏离30*0.5=15   两个相减180-15=165
+ * 输入：hour = 12, minutes = 30
+ * 输出：165
+ */
+bool front_back(int minute,int hour);//判断分钟在时钟前面还是后面
+double angleClock(int hour, int minutes);
 
 int test(int a);
 #endif

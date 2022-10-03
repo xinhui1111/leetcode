@@ -6,6 +6,8 @@ cmake_minimum_required(VERSION 3.5)
 # Set the project name
 project (hello_headers)
 
+set(CMAKE_BUILD_TYPE DEBUG)
+
 
 # Create a sources variable with a link to all cpp files to compile
 set(SOURCES
