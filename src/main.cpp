@@ -2,11 +2,24 @@
 using namespace std;
 #include <ctime>
 #include <cmath>
+#include <future>
 
 #include "doublePoint.h"
 
+class t{
+public:
+    void test(){
+        std::cout<<"test a litte\n";
+    }
+};
 
-int main() {
+#include "MutliThread.h"
+
+void test_n(int n){
+    cout<<n<<endl;
+}
+
+int main2() {
     double start ,end ,cost;
 
     for (int i = 0; i < 10; ++i) {
@@ -27,6 +40,7 @@ int main() {
     cout<<"时间花费是："<<cost<<endl;
 #endif
 
+#if 0
     //1344. 时钟指针的夹角
     //6 5  207.5而实际应该是152.5
     //12 30 195.00000而实际应该是165
@@ -35,5 +49,21 @@ int main() {
     //12 30
     //4 22
     cout<<"angleClock:  "<<angleClock(4,22)<<endl;
+#endif
+
+   t *t1=new t();
+   t1->test();
+   //std::thread(&t::test(),t1);
+
+    std::function<void(int)> f_test=test_n;
+    ZeroEvenOdd MT1;
+    std::thread tt1(&ZeroEvenOdd::zero,MT1,f_test);
+
+    tt1.join();
+
+    //delete MT1;
+
+
+
     return 0;
 }

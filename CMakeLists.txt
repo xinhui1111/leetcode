@@ -13,10 +13,17 @@ set(CMAKE_BUILD_TYPE DEBUG)
 set(SOURCES
         src/doublePoint.cpp
         src/main.cpp
-        # src/Hello.cpp src/main.cpp include/Hello.h
-        )
-set(CMAKE_CXX_STANDARD 11)
+        src/MutliThread.cpp src/MutliThread.h src/test.cpp
+        src/async_test.cpp src/time_test.cpp)
 
+
+set(CMAKE_CXX_FLAGS "${CAMKE_CXX_FLAGS} -std=c++11 -pthread")
+#[[set(CMAKE_CXX_STANDARD 11)]]
+
+
+IF (WIN32)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fexec-charset=GBK")
+ENDIF ()
 
 # Add an executable with the above sources
 add_executable(hello_headers ${SOURCES})
@@ -31,3 +38,4 @@ target_include_directories(hello_headers
 add_compile_options(
         /std:c++latest
 )
+
