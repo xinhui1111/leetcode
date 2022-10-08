@@ -102,7 +102,7 @@ int accumulate2(std::vector<int>::iterator first,
 
 
 
-int main()
+int main_threead_test()
 {
 #if 0  //第一个线程异步方案
     std::vector<int> numbers = { 1, 2, 3, 4, 5, 6 };

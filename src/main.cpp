@@ -19,7 +19,7 @@ void test_n(int n){
     cout<<n<<endl;
 }
 
-int main2() {
+int main() {
     double start ,end ,cost;
 
     for (int i = 0; i < 10; ++i) {
@@ -51,6 +51,7 @@ int main2() {
     cout<<"angleClock:  "<<angleClock(4,22)<<endl;
 #endif
 
+#if 0
    t *t1=new t();
    t1->test();
    //std::thread(&t::test(),t1);
@@ -62,8 +63,13 @@ int main2() {
     tt1.join();
 
     //delete MT1;
+#endif
 
-
+    vector<int>nums{0,1,0,3,12};
+    moveZeroes_Official(nums);
+    for(auto temp:nums){
+        cout<<temp<<endl;
+    }
 
     return 0;
 }

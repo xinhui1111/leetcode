@@ -143,3 +143,76 @@ int test(int a) {
     return a;
 }
 
+#if 0
+/*
+ * 输入: nums = [0,1,0,3,12]
+    输出: [1,3,12,0,0]
+ */
+void moveZeroes(vector<int> &nums) {
+    //这种方法把相对位置变了
+    //可以从前往后进行推，遇到0就将其放在最后，并且放了之后指向最后的位置就向前移动一位
+    int left{0};
+    int right{static_cast<int>(nums.size()-1)};
+    //前后两个指针，前面一个一步步向后移动，当遇到0就与最后的进行转换，转换了之后后面的指针也要向前移动一个，非0就向后进行移动，
+    while(left<right){
+        if(nums[left]==0){
+            //将这个位置和最后一个位置的数进行互换
+            if(nums[right]!=0){
+                //进行互换
+                int temp{0};
+                temp=nums[left];
+                nums[left]=nums[right];
+                nums[right]=temp;
+            }
+            right--;
+        }
+        left++;
+
+    }
+}
+#endif
+
+//0,1,0,3,12
+//非常水的方法，因为用了很多循环
+void moveZeroes(vector<int> &nums) {
+    int left{0};
+    int right{static_cast<int>(nums.size()-1)};
+
+    while (left<right){
+        if(nums[left]==0){
+            //就把left后面的全部往前移动
+            for(int i=left;i<right;i++){
+                nums[i]=nums[i+1];
+            }
+            nums[right]=0;
+            right--;
+        }
+        else
+            left++;
+    }
+
+}
+
+/*
+ * 借鉴了官方的解法
+ * 将指针放在相邻的位置，如果遇到是0的时候，就把0放在前面
+ */
+void moveZeroes_Official(vector<int>& (nums)){
+    int left{0};
+    int right{0};
+    while (right<nums.size()){
+        if(nums[right]){
+            //将left与right进行互换
+            int temp{0};
+            temp=nums[left];
+            nums[left]=nums[right];
+            nums[right]=temp;
+
+            left++;
+        }
+        right++;
+    }
+}
+
+
+

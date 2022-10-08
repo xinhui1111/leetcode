@@ -30,6 +30,17 @@ int maxArea4(vector<int> &height);
 bool front_back(int minute,int hour);//判断分钟在时钟前面还是后面
 double angleClock(int hour, int minutes);
 
+
+/*
+ * 283 移动零
+ * 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
+ * 请注意 ，必须在不复制数组的情况下原地对数组进行操作。
+ */
+void moveZeroes(vector<int>& nums) ;
+
+//官方解法
+void moveZeroes_Official(vector<int>& (nums));
+
 int test(int a);
 #endif
 
