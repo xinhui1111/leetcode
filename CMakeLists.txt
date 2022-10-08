@@ -15,7 +15,6 @@ set(SOURCES
         src/main.cpp
         src/MutliThread.cpp
         src/thread_test.cpp
-        src/async_test.cpp
         src/time_chrono_signal_test.cpp
         )
 
