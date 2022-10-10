@@ -65,11 +65,34 @@ int main() {
     //delete MT1;
 #endif
 
+//移除零的算法
+#if 0
     vector<int>nums{0,1,0,3,12};
     moveZeroes_Official(nums);
     for(auto temp:nums){
         cout<<temp<<endl;
     }
+#endif
+
+    /*vector<int>nums1={1,2,3,0,0,0};
+    vector<int>nums2={2,5,6};*/
+
+    /*vector<int>nums1={1};
+    vector<int>nums2={};*/
+
+    /*vector<int>nums1={2,0};
+    vector<int>nums2={1};*/
+
+    vector<int>nums1={1,2,3,0,0,0};
+    vector<int>nums2={2,5,6};
+
+    merge3(nums1,3,nums2,3);
+
+    cout<<"==============="<<endl;
+    for(auto temp:nums1){
+        cout<<temp<<endl;
+    }
+
 
     return 0;
 }

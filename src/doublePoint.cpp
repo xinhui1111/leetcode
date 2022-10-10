@@ -1,6 +1,9 @@
 //
 // Created by sxh on 2022/10/3.
 //
+
+#include <algorithm>
+#include <iostream>
 #include "doublePoint.h"
 int maxArea(vector<int> &height) {
     int hsize=height.size();
@@ -213,6 +216,75 @@ void moveZeroes_Official(vector<int>& (nums)){
         right++;
     }
 }
+
+
+/*
+ * 输入：nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+ * 输出：[1,2,2,3,5,6]
+ * 解释：需要合并 [1,2,3] 和 [2,5,6] 。
+ * 合并结果是 [1,2,2,3,5,6] ，其中斜体加粗标注的为 nums1 中的元素。
+ *
+ * 解法一、直接合并之后进行排序
+ */
+void merge(vector<int> &nums1, int m, vector<int> &nums2, int n) {
+    int diff_len=nums1.size()-nums2.size();
+    int nums2_len=nums2.size();
+    for(int i=0;i<nums2_len;++i){
+        nums1[diff_len+i]=nums2[i];
+    }
+
+    std::sort(nums1.begin(),nums1.end());
+}
+
+//1,2,3,0,0,0     2 5 6
+void merge2(vector<int> &nums1, int m, vector<int> &nums2, int n) {
+    sort(nums1.begin(),nums1.end());
+    sort(nums2.begin(),nums2.end());
+    if(nums2.empty() || nums1.empty())
+        return;
+    vector<int>sorted(m+n,0);
+    int left{0};
+    int right{0};
+    int pos{0};
+    while(pos<m+n){
+        //现在就是要解决其中一个读到了最后，后面一个
+        if(right>=n || nums1[left]<=nums2[right] && nums1[left]!=0){//前面没有考虑到0的情况
+            //将小于的放进去
+            sorted[pos++]=nums1[left++];
+            std::cout<<"pos:"<<pos<<"  "<<sorted[pos-1]<<"  left:"<<left<<"  right:"<<right<<"  pos:"<<pos<<endl;
+        }
+        else{
+            //将小于的放进去
+            sorted[pos++]=nums2[right++];
+            std::cout<<"pos:"<<pos<<"  "<<sorted[pos-1]<<"  left:"<<left<<"  right:"<<right<<"  pos:"<<pos<<endl;
+        }
+    }
+
+    for(int i=0;i<m+n;++i){
+        nums1[i]= sorted[i];
+    }
+}
+
+void merge3(vector<int> &nums1, int m, vector<int> &nums2, int n) {
+        int p1 = 0, p2 = 0;
+        int sorted[m + n];
+        int cur;//标尺：sorted所在的位置
+        while (p1 < m || p2 < n) {
+            if (p1 == m) {
+                cur = nums2[p2++];//那边会一直++
+            } else if (p2 == n) {
+                cur = nums1[p1++];//p1会一直++
+            } else if (nums1[p1] < nums2[p2]) {
+                cur = nums1[p1++];
+            } else {
+                cur = nums2[p2++];
+            }
+            sorted[p1 + p2 - 1] = cur;
+        }
+        for (int i = 0; i != m + n; ++i) {
+            nums1[i] = sorted[i];
+        }
+    }
 
 
 
