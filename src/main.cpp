@@ -19,7 +19,7 @@ void test_n(int n){
     cout<<n<<endl;
 }
 
-int main() {
+int main_main() {
     double start ,end ,cost;
 
     for (int i = 0; i < 10; ++i) {

@@ -16,7 +16,7 @@ set(SOURCES
         src/MutliThread.cpp
         src/thread_test.cpp
         src/time_chrono_signal_test.cpp
-        )
+        src/copy.cpp)
 
 
 set(CMAKE_CXX_FLAGS "${CAMKE_CXX_FLAGS} -std=c++11 -pthread")
