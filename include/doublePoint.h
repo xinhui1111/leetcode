@@ -47,9 +47,9 @@ void moveZeroes_Official(vector<int>& (nums));
  *
  */
 void merge(vector<int>& nums1, int m, vector<int>& nums2, int n);
-//使用双指针法进行解,一直出错
+//非递减合并排序：使用双指针法进行解,一直出错
 void merge2(vector<int>& nums1, int m, vector<int>& nums2, int n);
-//官方解法
+//非递减合并排序：官方解法
 void merge3(vector<int>& nums1, int m, vector<int>& nums2, int n);
 
 int test(int a);

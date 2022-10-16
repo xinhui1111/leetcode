@@ -1,5 +1,6 @@
 //
 // Created by sxh on 2022/10/10.
+//实现深拷贝和浅拷贝的区别
 //
 #include <iostream>
 
@@ -70,7 +71,7 @@ private:
     int size;
 };
 
-int main()
+int main_copy()
 {
     A a(5), b = a;
     a.print();

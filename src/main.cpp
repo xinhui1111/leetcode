@@ -3,6 +3,7 @@ using namespace std;
 #include <ctime>
 #include <cmath>
 #include <future>
+#include <numeric>
 
 #include "doublePoint.h"
 
@@ -19,14 +20,14 @@ void test_n(int n){
     cout<<n<<endl;
 }
 
-int main_main() {
-    double start ,end ,cost;
+int main() {
+    /*double start ,end ,cost;
 
     for (int i = 0; i < 10; ++i) {
         i=i+1;
         cout<<i<<endl;
     }
-    std::cout << "Hello, World!" << std::endl;
+    std::cout << "Hello, World!" << std::endl;*/
 
 #if 0
     //11、测试算法maxArea
@@ -74,6 +75,8 @@ int main_main() {
     }
 #endif
 
+//非递减合并排序实现
+#if 0
     /*vector<int>nums1={1,2,3,0,0,0};
     vector<int>nums2={2,5,6};*/
 
@@ -92,7 +95,52 @@ int main_main() {
     for(auto temp:nums1){
         cout<<temp<<endl;
     }
+#endif
+
+    //看看求和函数中使用move的效果
+#if 0
+    std::vector<int> v{2,0,1,8,10,31};
+
+    std::string s = std::accumulate(
+            std::next(v.begin()),
+            v.end(),
+            std::to_string(v[0]),
+            [](std::string a, int b) {
+                return a + '-' + std::to_string(b);
+            });
+
+    //2-0-1-8-10-3-1
+    std::cout << s << std::endl;
 
 
+
+    int a=0;
+    std::cout<<&a<<endl;
+//    int b=std::move(a);
+    int b=a;
+    std::cout<<&b<<std::endl;
+
+
+    string str = "i will be free if out of scope";
+    string str1=str;
+    cout<<&str<<"   "<<&str1<<endl;
     return 0;
+#endif
+
+//查找各种类型的最大值以及最小值
+    cout<<"numeric_limits<unsigned short>::min()= "<<numeric_limits<unsigned short>::min()<<endl; //unsigned short的最小值
+    cout<<"numeric_limits<unsigned short>::max()= "<<numeric_limits<unsigned short>::max()<<endl;  //unsigned short的最大值
+    cout<<"numeric_limits<int>::min()= "<<numeric_limits<int>::min()<<endl; //int的最小值
+    cout<<"numeric_limits<int>::max()= "<<numeric_limits<int>::max()<<endl;  //int的最大值
+    cout<<"numeric_limits<short>::min()= "<<numeric_limits<short>::min()<<endl;
+    cout<<"numeric_limits<short>::max()= "<<numeric_limits<short>::max()<<endl;
+    cout<<"numeric_limits<double>::min()= "<<numeric_limits<double>::min()<<endl;
+    cout<<"numeric_limits<double>::max()= "<<numeric_limits<double>::max()<<endl;
+
+    cout<<"numeric_limits<int>::is_signed()= "<<numeric_limits<int>::is_signed<<endl;//是否有正负号
+    cout<<"numeric_limits<string>::is_specialized()= "<<numeric_limits<string>::is_specialized<<endl;//是否定义了数值极限
+
+//    cout<<"范数是："<<norm(4)<< endl;
+    return 0;
+
 }
