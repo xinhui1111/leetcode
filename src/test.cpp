@@ -1,6 +1,16 @@
 //
 // Created by sxh on 2022/10/19.
 //
+/*
+ * 使用"{ }"限定lock_guard作用域
+ * lock_guard在创建的时候加锁，在delete的时候释放的锁
+ * 两种创建锁的方式：
+ *  1.lock_guard(mutex& m, adopt_lock);
+ *  2.lock_guard(mutex& m);
+ *这两种创建其实没你什么区别，关键要注意，创建的时候就会去获取锁，然后生命周期之外就会对锁进行释放，所以关注生命周期在哪，这里第一个使用了{},所以生命
+ * 周期就是在{}内，而第二个使用了while循环，那么前一次循环结束了就代表了此次生命周期的结束
+ * 参考：https://blog.csdn.net/gehong3641/article/details/124028976
+ */
 #include <iostream>
 #include <mutex>
 #include <vector>
@@ -16,7 +26,10 @@ string mock_msg()
 {
     char buff[30] = { 0 };
     static int i = 100000;
-    sprintf(buff, "%d");
+    //sprintf_s( buffer, 200, " String: %s\n", s );将" String: %s\n"写入到了buffer中，并且其中了s将%s的部分替代了，限定了长度200，不会发生溢出
+//    snprintf(s,100,"%.*S",3,"abcd");将"%.*S"写入到s中，并限定长度为100
+//    sprintf(buff, "%d"，i--);
+    snprintf(buff, sizeof (buff)/ sizeof(int),"%d", i--);
     return buff;
 }
 
@@ -56,7 +69,7 @@ void CMutexTest::read_msg()
         // 已经加锁
         m_mutex.lock();
         // 传递所有权给lock_guard,并传入adopt_lock表示已获得所有权
-        lock_guard<mutex> mylockguard(m_mutex, adopt_lock);
+        lock_guard<mutex> mylockguard(m_mutex, adopt_lock);//adopt_lock:用于使作用域锁定取得锁定互斥的所有权的标记，一个循环周期就会结束
         if (!msg_queue.empty())
         {
             // 处理消息并移除
