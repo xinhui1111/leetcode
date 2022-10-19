@@ -4,6 +4,7 @@ using namespace std;
 #include <cmath>
 #include <future>
 #include <numeric>
+#include <algorithm>
 
 #include "doublePoint.h"
 
@@ -20,7 +21,7 @@ void test_n(int n){
     cout<<n<<endl;
 }
 
-int main() {
+int main_main() {
     /*double start ,end ,cost;
 
     for (int i = 0; i < 10; ++i) {
@@ -140,6 +141,21 @@ int main() {
     cout<<"numeric_limits<int>::is_signed()= "<<numeric_limits<int>::is_signed<<endl;//是否有正负号
     cout<<"numeric_limits<string>::is_specialized()= "<<numeric_limits<string>::is_specialized<<endl;//是否定义了数值极限
 
+    //测试是否可以在for循环已经定义了i的情况下继续定义i
+    for(int i=0;i<10;++i){
+        for(int i=0;i<11;++i){
+            cout<<"是不是可以"<<i<<endl;
+        }
+        cout<<"外层的结果"<<i<<endl;
+    }
+
+    //看一下sort默认是降序还是升序
+    vector<int>vec={1,33,2,77,23,11};
+    sort(vec.begin(),vec.end());
+    for(auto tmp:vec){
+        cout<<tmp<<" ";
+    }
+    cout<<endl;
 //    cout<<"范数是："<<norm(4)<< endl;
     return 0;
 
