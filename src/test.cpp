@@ -29,7 +29,7 @@ string mock_msg()
     //sprintf_s( buffer, 200, " String: %s\n", s );将" String: %s\n"写入到了buffer中，并且其中了s将%s的部分替代了，限定了长度200，不会发生溢出
 //    snprintf(s,100,"%.*S",3,"abcd");将"%.*S"写入到s中，并限定长度为100
 //    sprintf(buff, "%d"，i--);
-    snprintf(buff, sizeof (buff)/ sizeof(int),"%d", i--);
+    snprintf(buff, sizeof (buff)/ sizeof(int),"%d  %d", i--);//数组没有在函数里传参是可以这么计算的，否则是不可以被
     return buff;
 }
 
@@ -81,7 +81,7 @@ void CMutexTest::read_msg()
     }
 }
 
-int main()
+int main_test()
 {
     CMutexTest my_test;
     thread recv_thread(&CMutexTest::recv_msg, &my_test); //接收线程

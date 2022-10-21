@@ -21,7 +21,7 @@ void test_n(int n){
     cout<<n<<endl;
 }
 
-int main_main() {
+int main() {
     /*double start ,end ,cost;
 
     for (int i = 0; i < 10; ++i) {
@@ -129,6 +129,7 @@ int main_main() {
 #endif
 
 //查找各种类型的最大值以及最小值
+#if 0
     cout<<"numeric_limits<unsigned short>::min()= "<<numeric_limits<unsigned short>::min()<<endl; //unsigned short的最小值
     cout<<"numeric_limits<unsigned short>::max()= "<<numeric_limits<unsigned short>::max()<<endl;  //unsigned short的最大值
     cout<<"numeric_limits<int>::min()= "<<numeric_limits<int>::min()<<endl; //int的最小值
@@ -140,14 +141,18 @@ int main_main() {
 
     cout<<"numeric_limits<int>::is_signed()= "<<numeric_limits<int>::is_signed<<endl;//是否有正负号
     cout<<"numeric_limits<string>::is_specialized()= "<<numeric_limits<string>::is_specialized<<endl;//是否定义了数值极限
+#endif
+
 
     //测试是否可以在for循环已经定义了i的情况下继续定义i
+#if 0
     for(int i=0;i<10;++i){
         for(int i=0;i<11;++i){
             cout<<"是不是可以"<<i<<endl;
         }
         cout<<"外层的结果"<<i<<endl;
     }
+#endif
 
     //看一下sort默认是降序还是升序
     vector<int>vec={1,33,2,77,23,11};
@@ -156,7 +161,26 @@ int main_main() {
         cout<<tmp<<" ";
     }
     cout<<endl;
-//    cout<<"范数是："<<norm(4)<< endl;
+
+
+    /*
+    * 输入：nums = [-1,0,1,2,-1,-4]
+    * 输出：[[-1,-1,2],[-1,0,1]]
+    * 解释：
+        * nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0 。
+        * nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 。
+        * nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
+        * 不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。
+        * 注意，输出的顺序和三元组的顺序并不重要。
+    */
+    vector<int>nums{-1,0,1,2,-1,-4};
+//    vector<int>nums{0,0,0};
+//    vector<int>nums{-1,0,1};
+//    vector<int>nums{-2,0,1,1,2};
+//    vector<int>nums{-1,0,1,2,-1,-4};
+    vector<vector<int>>result= threeSum(nums);
+
+    int a=1;
     return 0;
 
 }

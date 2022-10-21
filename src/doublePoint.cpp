@@ -286,5 +286,84 @@ void merge3(vector<int> &nums1, int m, vector<int> &nums2, int n) {
         }
     }
 
+    /*
+     * 输入：nums = [-1,0,1,2,-1,-4]
+     * 输出：[[-1,-1,2],[-1,0,1]]
+     * 解释：
+         * nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0 。
+         * nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 。
+         * nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
+         * 不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。
+         * 注意，输出的顺序和三元组的顺序并不重要。
+     */
+vector<vector<int>> threeSum(vector<int> &nums) {
+    //使用left和right分别在数组前后进行移动，第三个元素就进行固定
+    //先进行排序
+    std::sort(nums.begin(),nums.end());
+    for(auto tmp:nums){//看看排序之后的结果
+        cout<<tmp<<endl;
+    }
+
+    vector<vector<int>>result;
+
+    int flag_0{1};
+    bool first_flag= true;
+    for(int i=0;i<nums.size() ;++i){
+        if(nums[i]==0 ){//这里为0就不会到下面考虑了
+            flag_0++;
+        }
+
+        /*if(nums[i+1]==nums[i])
+            continue;*/
+
+        int left{i};
+        int right{static_cast<int>(nums.size()-1)};
+        while(left<right){
+            //固定第三个元素为i元素
+            if(left==i)
+                left++;
+            else if(right==i)
+                right--;
+            else{
+                //遍历两两元素
+                if((nums[i]+nums[left]+nums[right])==0){
+                    vector<int>tmp{nums[i],nums[left],nums[right]};
+                    result.push_back(tmp);
+                    while(nums[left++]==nums[left])
+                    {
+
+                    }
+
+                    while(nums[right--]==nums[right])
+                    {
+
+                    }
+                }
+                else if((nums[i]+nums[left]+nums[right])>0){
+                    while(nums[right--]==nums[right])
+                    {
+
+                    }
+                }
+                else
+                {
+                    while(nums[left++]==nums[left])
+                    {
+
+                    }
+                }
+            }
+        }
+        }
+
+    if(flag_0>=3){
+        vector<int>tmp{0,0,0};
+        result.push_back(tmp);
+    }
+    return result;
+}
+
+
+
 
 
