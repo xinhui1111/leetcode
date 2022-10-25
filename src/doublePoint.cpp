@@ -384,6 +384,8 @@ vector<vector<int>> threeSum2(vector<int> &nums) {
     int n=nums.size();
     vector<vector<int>>result;
     for (int first = 0 ;first<=n-1;first++){
+        //这里之所是要first大于0，是由于后面比较的是first-1，如果没有大于初始值，那么first范围就会不对
+        //但是第一个肯定是要参加计算的，也不存在重复，所以第一个也要考虑进去，也就是||的条件
         if( (first >0 && nums[first] != nums[first-1])||first==0){//TODO: 之前是first == 0，没有覆盖情况   需要大于0是为了first-1的问题
             // 第三重循环对应的指针
             int third = n-1;
