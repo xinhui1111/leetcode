@@ -173,12 +173,13 @@ int main() {
         * 不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。
         * 注意，输出的顺序和三元组的顺序并不重要。
     */
-    vector<int>nums{-1,0,1,2,-1,-4};
-//    vector<int>nums{0,0,0};
+//    vector<int>nums{-1,0,1,2,-1,-4};
+//    vector<int>nums{0,0,0,0};
 //    vector<int>nums{-1,0,1};
 //    vector<int>nums{-2,0,1,1,2};
 //    vector<int>nums{-1,0,1,2,-1,-4};
-    vector<vector<int>>result= threeSum(nums);
+    vector<int>nums{3,0,-2,-1,1,2};
+    vector<vector<int>>result= threeSum2(nums);
 
     int a=1;
     return 0;

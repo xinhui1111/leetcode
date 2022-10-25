@@ -62,6 +62,7 @@ void merge3(vector<int>& nums1, int m, vector<int>& nums2, int n);
  *
  */
 vector<vector<int>> threeSum(vector<int>& nums) ;
+vector<vector<int>> threeSum2(vector<int> &nums);
 
 int test(int a);
 #endif

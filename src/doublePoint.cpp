@@ -363,6 +363,94 @@ vector<vector<int>> threeSum(vector<int> &nums) {
     return result;
 }
 
+//使用官方的思路自己复现
+/*
+nums.sort()
+for first = 0 .. n-1
+    if first == 0 or nums[first] != nums[first-1] then
+        // 第三重循环对应的指针
+        third = n-1
+        for second = first+1 .. n-1
+            if second == first+1 or nums[second] != nums[second-1] then
+                // 向左移动指针，直到 a+b+c 不大于 0
+                while nums[first]+nums[second]+nums[third] > 0
+                    third = third-1
+                // 判断是否有 a+b+c==0
+                check(first, second, third)
+                -4,-1,-1,0,1,2
+ */
+vector<vector<int>> threeSum2(vector<int> &nums) {
+    std::sort(nums.begin(),nums.end());
+    int n=nums.size();
+    vector<vector<int>>result;
+    for (int first = 0 ;first<=n-1;first++){
+        if( (first >0 && nums[first] != nums[first-1])||first==0){//TODO: 之前是first == 0，没有覆盖情况   需要大于0是为了first-1的问题
+            // 第三重循环对应的指针
+            int third = n-1;
+            for(int second = first+1;second <=n-1;second++){
+
+                if((second>first+1 && nums[second]!=nums[second-1])||(second==first+1)) {//TODO: 之前是second==first+1，没有覆盖情况
+                    // 向左移动指针，直到 a+b+c 不大于 0
+                    while (nums[first] + nums[second] + nums[third] > 0 && third > second) {
+                        cout << "遍历元素" << first << second <<third<< endl;
+                        third = third - 1;
+
+                    }
+
+                    // 判断是否有 a+b+c==0
+                    if (nums[first] + nums[second] + nums[third] == 0 && third > second) {
+                        //加入列表;
+                        result.push_back(vector<int>{nums[first], nums[second], nums[third]});
+                        cout << nums[first] << "  " << nums[second] << "  " << nums[third] << endl;
+                        continue;//TODO: 之前是直接break跳出循环了，那么就计算不出所有的结果
+                    }
+                }
+            }
+
+        }
+    }
+
+    return result;
+
+
+}
+
+
+vector<vector<int>> threeSum3(vector<int>& nums) {
+    int n = nums.size();
+    sort(nums.begin(), nums.end());
+    vector<vector<int>> ans;
+    // 枚举 a
+    for (int first = 0; first < n; ++first) {
+        // 需要和上一次枚举的数不相同
+        if (first > 0 && nums[first] == nums[first - 1]) {
+            continue;
+        }
+        // c 对应的指针初始指向数组的最右端
+        int third = n - 1;
+        int target = -nums[first];
+        // 枚举 b
+        for (int second = first + 1; second < n; ++second) {
+            // 需要和上一次枚举的数不相同
+            if (second > first + 1 && nums[second] == nums[second - 1]) {
+                continue;
+            }
+            // 需要保证 b 的指针在 c 的指针的左侧
+            while (second < third && nums[second] + nums[third] > target) {
+                --third;
+            }
+            // 如果指针重合，随着 b 后续的增加
+            // 就不会有满足 a+b+c=0 并且 b<c 的 c 了，可以退出循环
+            if (second == third) {
+                break;
+            }
+            if (nums[second] + nums[third] == target) {
+                ans.push_back({nums[first], nums[second], nums[third]});
+            }
+        }
+    }
+    return ans;
+}
 
 
 
