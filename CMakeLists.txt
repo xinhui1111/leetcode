@@ -3,6 +3,11 @@
 # $ cmake --version
 cmake_minimum_required(VERSION 3.5)
 
+# 设置release模式
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE release CACHE STRING "Build Type" FORCE)
+endif()
+
 # Set the project name
 project (hello_headers)
 
@@ -16,7 +21,7 @@ set(SOURCES
         src/MutliThread.cpp
         src/thread_test.cpp
         src/time_chrono_signal_test.cpp
-        src/copy.cpp src/test.cpp)
+        src/copy.cpp src/test.cpp cpp_test/move_test.cpp)
 
 
 set(CMAKE_CXX_FLAGS "${CAMKE_CXX_FLAGS} -std=c++11 -pthread")

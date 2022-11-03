@@ -7,7 +7,7 @@
 #include "doublePoint.h"
 int maxArea(vector<int> &height) {
     int hsize=height.size();
-    //åˆ†åˆ«æ¯”è¾ƒ
+    //·Ö±ğ±È½Ï
     int h{0};
     int w{0};
     int Area{0};
@@ -16,7 +16,7 @@ int maxArea(vector<int> &height) {
             w=j-i;
             h=height[i]<height[j]?height[i]:height[j];
             if(Area<w*h){
-                //é¢ç§¯èµ‹å€¼ï¼ŒåŒæ—¶è¿˜è¦æ ‡è®°ä½ç½®
+                //Ãæ»ı¸³Öµ£¬Í¬Ê±»¹Òª±ê¼ÇÎ»ÖÃ
                 Area=w*h;
             }
         }
@@ -24,26 +24,26 @@ int maxArea(vector<int> &height) {
     return Area;
 }
 
-//å¢åŠ ä¸€äº›æé«˜æ•ˆç‡çš„æ–¹å¼
+//Ôö¼ÓÒ»Ğ©Ìá¸ßĞ§ÂÊµÄ·½Ê½
 /*
- * è€—è´¹æ—¶é—´ï¼š20087
+ * ºÄ·ÑÊ±¼ä£º20087
  */
 int maxArea2(vector<int> &height) {
     int hsize=height.size();
-    //åˆ†åˆ«æ¯”è¾ƒ
+    //·Ö±ğ±È½Ï
     int h{0};
     int w{0};
     int Area{0};
     for(int i=0;i<hsize;++i){
         for(int j=i+1;j<hsize;++j){
             if(height[i]>height[j] || height[hsize-1]>height[j]){
-                //è·³è¿‡
+                //Ìø¹ı
                 continue;
             }
             w=j-i;
             h=height[i]<height[j]?height[i]:height[j];
             if(Area<w*h){
-                //é¢ç§¯èµ‹å€¼ï¼ŒåŒæ—¶è¿˜è¦æ ‡è®°ä½ç½®
+                //Ãæ»ı¸³Öµ£¬Í¬Ê±»¹Òª±ê¼ÇÎ»ÖÃ
                 Area=w*h;
             }
         }
@@ -53,7 +53,7 @@ int maxArea2(vector<int> &height) {
 
 
 /*
- * è€—è´¹æ—¶é—´25
+ * ºÄ·ÑÊ±¼ä25
  */
 int maxArea3(vector<int> &height){
     int i = 0, j = height.size() - 1, res = 0;
@@ -66,11 +66,11 @@ int maxArea3(vector<int> &height){
 }
 
 
-//å®˜æ–¹è§£æ³•ï¼š
+//¹Ù·½½â·¨£º
 /*
- * åŒæŒ‡é’ˆä»£è¡¨çš„æ˜¯ å¯ä»¥ä½œä¸ºå®¹å™¨è¾¹ç•Œçš„æ‰€æœ‰ä½ç½®çš„èŒƒå›´ã€‚åœ¨ä¸€å¼€å§‹ï¼ŒåŒæŒ‡é’ˆæŒ‡å‘æ•°ç»„çš„å·¦å³è¾¹ç•Œï¼Œè¡¨ç¤º æ•°ç»„ä¸­æ‰€æœ‰çš„ä½ç½®éƒ½å¯ä»¥ä½œä¸ºå®¹å™¨çš„è¾¹ç•Œï¼Œ
- * å› ä¸ºæˆ‘ä»¬è¿˜æ²¡æœ‰è¿›è¡Œè¿‡ä»»ä½•å°è¯•ã€‚åœ¨è¿™ä¹‹åï¼Œæˆ‘ä»¬æ¯æ¬¡å°†å¯¹åº”çš„æ•°å­—è¾ƒå°çš„é‚£ä¸ªæŒ‡é’ˆ å¾€ å¦ä¸€ä¸ªæŒ‡é’ˆçš„æ–¹å‘ç§»åŠ¨ä¸€ä¸ªä½ç½®ï¼Œå°±è¡¨ç¤ºæˆ‘ä»¬è®¤ä¸º è¿™ä¸ªæŒ‡é’ˆä¸å¯èƒ½å†ä½œä¸ºå®¹å™¨çš„è¾¹ç•Œäº†ã€‚
- * è€—è´¹æ—¶é—´æ˜¯ï¼š40
+ * Ë«Ö¸Õë´ú±íµÄÊÇ ¿ÉÒÔ×÷ÎªÈİÆ÷±ß½çµÄËùÓĞÎ»ÖÃµÄ·¶Î§¡£ÔÚÒ»¿ªÊ¼£¬Ë«Ö¸ÕëÖ¸ÏòÊı×éµÄ×óÓÒ±ß½ç£¬±íÊ¾ Êı×éÖĞËùÓĞµÄÎ»ÖÃ¶¼¿ÉÒÔ×÷ÎªÈİÆ÷µÄ±ß½ç£¬
+ * ÒòÎªÎÒÃÇ»¹Ã»ÓĞ½øĞĞ¹ıÈÎºÎ³¢ÊÔ¡£ÔÚÕâÖ®ºó£¬ÎÒÃÇÃ¿´Î½«¶ÔÓ¦µÄÊı×Ö½ÏĞ¡µÄÄÇ¸öÖ¸Õë Íù ÁíÒ»¸öÖ¸ÕëµÄ·½ÏòÒÆ¶¯Ò»¸öÎ»ÖÃ£¬¾Í±íÊ¾ÎÒÃÇÈÏÎª Õâ¸öÖ¸Õë²»¿ÉÄÜÔÙ×÷ÎªÈİÆ÷µÄ±ß½çÁË¡£
+ * ºÄ·ÑÊ±¼äÊÇ£º40
  */
 int maxArea4(vector<int> &height){
     int l = 0, r = height.size() - 1;
@@ -89,53 +89,53 @@ int maxArea4(vector<int> &height){
 }
 
 /*
- * åˆ¤æ–­åˆ†é’Ÿåœ¨æ—¶é’Ÿå‰é¢è¿˜æ˜¯åé¢
+ * ÅĞ¶Ï·ÖÖÓÔÚÊ±ÖÓÇ°Ãæ»¹ÊÇºóÃæ
  */
 bool front_back(int minute,int hour){
-    if(minute>hour*5)//åˆ†é’Ÿåœ¨å‰é¢
+    if(minute>hour*5)//·ÖÖÓÔÚÇ°Ãæ
         return true;
     else
         return false;
 }
 
 /*
- * ç»™ä½ ä¸¤ä¸ªæ•° hour å’Œ minutes ã€‚è¯·ä½ è¿”å›åœ¨æ—¶é’Ÿä¸Šï¼Œç”±ç»™å®šæ—¶é—´çš„æ—¶é’ˆå’Œåˆ†é’ˆç»„æˆçš„è¾ƒå°è§’çš„è§’åº¦ï¼ˆ60 å•ä½åˆ¶ï¼‰ã€‚
+ * ¸øÄãÁ½¸öÊı hour ºÍ minutes ¡£ÇëÄã·µ»ØÔÚÊ±ÖÓÉÏ£¬ÓÉ¸ø¶¨Ê±¼äµÄÊ±ÕëºÍ·ÖÕë×é³ÉµÄ½ÏĞ¡½ÇµÄ½Ç¶È£¨60 µ¥Î»ÖÆ£©¡£
  * 360/12=30   15   180-15=165
- * 30/60=0.5 12*0.5=6     (6-12+12)mod 12=6å¯¹åº”äº†6*30=180   åç¦»30*0.5=15   ä¸¤ä¸ªç›¸å‡180-15=165
- * è¾“å…¥ï¼šhour = 12, minutes = 30
- * è¾“å‡ºï¼š165
+ * 30/60=0.5 12*0.5=6     (6-12+12)mod 12=6¶ÔÓ¦ÁË6*30=180   Æ«Àë30*0.5=15   Á½¸öÏà¼õ180-15=165
+ * ÊäÈë£ºhour = 12, minutes = 30
+ * Êä³ö£º165
  */
 double angleClock(int hour, int minutes) {
-    //1.è®¡ç®—åˆ†é’Ÿä¸æ—¶é’Ÿçš„æ•´æ•°è§’åº¦ï¼Œåˆ¤æ–­åˆ†é’Ÿè¿˜æ˜¯æ—¶é’Ÿåœ¨å‰ï¼Œç°åœ¨è¿™é‡Œè®¡ç®—çš„æ˜¯åˆ†é’Ÿåœ¨å‰
+    //1.¼ÆËã·ÖÖÓÓëÊ±ÖÓµÄÕûÊı½Ç¶È£¬ÅĞ¶Ï·ÖÖÓ»¹ÊÇÊ±ÖÓÔÚÇ°£¬ÏÖÔÚÕâÀï¼ÆËãµÄÊÇ·ÖÖÓÔÚÇ°
     bool flag= false;
     double angle{0.0};
-    //åˆ¤æ–­å‰ååº”è¯¥æ˜¯ä¸è‡ªèº«ä½ç½®è¿›è¡Œæ¯”è¾ƒ
-    if(minutes > hour*5){//åˆ†é’Ÿåœ¨å‰é¢
+    //ÅĞ¶ÏÇ°ºóÓ¦¸ÃÊÇÓë×ÔÉíÎ»ÖÃ½øĞĞ±È½Ï
+    if(minutes > hour*5){//·ÖÖÓÔÚÇ°Ãæ
         angle=minutes*6-(hour % 12)*30;
     }else
-    {//æ—¶é’Ÿåœ¨å‰é¢
+    {//Ê±ÖÓÔÚÇ°Ãæ
         flag= true;
         angle=-minutes*6+hour*30;
     }
 
-    //2.è®¡ç®—åç¦»
+    //2.¼ÆËãÆ«Àë
     double deviate{0.0};
     deviate=30*(minutes/60.0);
     if(!flag)
         angle=angle-deviate>0?(angle-deviate):(-angle+deviate);
     else
     {
-        //æ—¶é’Ÿåœ¨å‰é¢,é‚£ä¹ˆåç§»çš„é‚£éƒ¨åˆ†å°±æ˜¯åŠ ä¸Šæ¥ï¼Œä¸å‰é¢çš„ç›¸åï¼Œå‰é¢çš„æ˜¯å‡å»
+        //Ê±ÖÓÔÚÇ°Ãæ,ÄÇÃ´Æ«ÒÆµÄÄÇ²¿·Ö¾ÍÊÇ¼ÓÉÏÀ´£¬ÓëÇ°ÃæµÄÏà·´£¬Ç°ÃæµÄÊÇ¼õÈ¥
         angle=angle+deviate;
     }
 
-    //3.ç‰¹æ®Šå¤„ç†
-    //è¶…è¿‡360çš„æ—¶å€™ï¼Œå› ä¸ºä¸ä¼šè¶…è¿‡ä¸¤ä¸ª360åº¦ï¼Œæ‰€ä»¥å¯ä»¥è¿™ä¹ˆç®—
+    //3.ÌØÊâ´¦Àí
+    //³¬¹ı360µÄÊ±ºò£¬ÒòÎª²»»á³¬¹ıÁ½¸ö360¶È£¬ËùÒÔ¿ÉÒÔÕâÃ´Ëã
     if(angle>=360){
         angle-=360;
     }
 
-    //è¦è®¡ç®—å‡ºå°çš„é‚£ä¸ªè§’åº¦
+    //Òª¼ÆËã³öĞ¡µÄÄÇ¸ö½Ç¶È
     if(angle>180){
         angle=360-angle;
     }
@@ -148,20 +148,20 @@ int test(int a) {
 
 #if 0
 /*
- * è¾“å…¥: nums = [0,1,0,3,12]
-    è¾“å‡º: [1,3,12,0,0]
+ * ÊäÈë: nums = [0,1,0,3,12]
+    Êä³ö: [1,3,12,0,0]
  */
 void moveZeroes(vector<int> &nums) {
-    //è¿™ç§æ–¹æ³•æŠŠç›¸å¯¹ä½ç½®å˜äº†
-    //å¯ä»¥ä»å‰å¾€åè¿›è¡Œæ¨ï¼Œé‡åˆ°0å°±å°†å…¶æ”¾åœ¨æœ€åï¼Œå¹¶ä¸”æ”¾äº†ä¹‹åæŒ‡å‘æœ€åçš„ä½ç½®å°±å‘å‰ç§»åŠ¨ä¸€ä½
+    //ÕâÖÖ·½·¨°ÑÏà¶ÔÎ»ÖÃ±äÁË
+    //¿ÉÒÔ´ÓÇ°Íùºó½øĞĞÍÆ£¬Óöµ½0¾Í½«Æä·ÅÔÚ×îºó£¬²¢ÇÒ·ÅÁËÖ®ºóÖ¸Ïò×îºóµÄÎ»ÖÃ¾ÍÏòÇ°ÒÆ¶¯Ò»Î»
     int left{0};
     int right{static_cast<int>(nums.size()-1)};
-    //å‰åä¸¤ä¸ªæŒ‡é’ˆï¼Œå‰é¢ä¸€ä¸ªä¸€æ­¥æ­¥å‘åç§»åŠ¨ï¼Œå½“é‡åˆ°0å°±ä¸æœ€åçš„è¿›è¡Œè½¬æ¢ï¼Œè½¬æ¢äº†ä¹‹ååé¢çš„æŒ‡é’ˆä¹Ÿè¦å‘å‰ç§»åŠ¨ä¸€ä¸ªï¼Œé0å°±å‘åè¿›è¡Œç§»åŠ¨ï¼Œ
+    //Ç°ºóÁ½¸öÖ¸Õë£¬Ç°ÃæÒ»¸öÒ»²½²½ÏòºóÒÆ¶¯£¬µ±Óöµ½0¾ÍÓë×îºóµÄ½øĞĞ×ª»»£¬×ª»»ÁËÖ®ºóºóÃæµÄÖ¸ÕëÒ²ÒªÏòÇ°ÒÆ¶¯Ò»¸ö£¬·Ç0¾ÍÏòºó½øĞĞÒÆ¶¯£¬
     while(left<right){
         if(nums[left]==0){
-            //å°†è¿™ä¸ªä½ç½®å’Œæœ€åä¸€ä¸ªä½ç½®çš„æ•°è¿›è¡Œäº’æ¢
+            //½«Õâ¸öÎ»ÖÃºÍ×îºóÒ»¸öÎ»ÖÃµÄÊı½øĞĞ»¥»»
             if(nums[right]!=0){
-                //è¿›è¡Œäº’æ¢
+                //½øĞĞ»¥»»
                 int temp{0};
                 temp=nums[left];
                 nums[left]=nums[right];
@@ -176,14 +176,14 @@ void moveZeroes(vector<int> &nums) {
 #endif
 
 //0,1,0,3,12
-//éå¸¸æ°´çš„æ–¹æ³•ï¼Œå› ä¸ºç”¨äº†å¾ˆå¤šå¾ªç¯
+//·Ç³£Ë®µÄ·½·¨£¬ÒòÎªÓÃÁËºÜ¶àÑ­»·
 void moveZeroes(vector<int> &nums) {
     int left{0};
     int right{static_cast<int>(nums.size()-1)};
 
     while (left<right){
         if(nums[left]==0){
-            //å°±æŠŠleftåé¢çš„å…¨éƒ¨å¾€å‰ç§»åŠ¨
+            //¾Í°ÑleftºóÃæµÄÈ«²¿ÍùÇ°ÒÆ¶¯
             for(int i=left;i<right;i++){
                 nums[i]=nums[i+1];
             }
@@ -197,15 +197,15 @@ void moveZeroes(vector<int> &nums) {
 }
 
 /*
- * å€Ÿé‰´äº†å®˜æ–¹çš„è§£æ³•
- * å°†æŒ‡é’ˆæ”¾åœ¨ç›¸é‚»çš„ä½ç½®ï¼Œå¦‚æœé‡åˆ°æ˜¯0çš„æ—¶å€™ï¼Œå°±æŠŠ0æ”¾åœ¨å‰é¢
+ * ½è¼øÁË¹Ù·½µÄ½â·¨
+ * ½«Ö¸Õë·ÅÔÚÏàÁÚµÄÎ»ÖÃ£¬Èç¹ûÓöµ½ÊÇ0µÄÊ±ºò£¬¾Í°Ñ0·ÅÔÚÇ°Ãæ
  */
 void moveZeroes_Official(vector<int>& (nums)){
     int left{0};
     int right{0};
     while (right<nums.size()){
         if(nums[right]){
-            //å°†leftä¸rightè¿›è¡Œäº’æ¢
+            //½«leftÓëright½øĞĞ»¥»»
             int temp{0};
             temp=nums[left];
             nums[left]=nums[right];
@@ -219,12 +219,12 @@ void moveZeroes_Official(vector<int>& (nums)){
 
 
 /*
- * è¾“å…¥ï¼šnums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
- * è¾“å‡ºï¼š[1,2,2,3,5,6]
- * è§£é‡Šï¼šéœ€è¦åˆå¹¶ [1,2,3] å’Œ [2,5,6] ã€‚
- * åˆå¹¶ç»“æœæ˜¯ [1,2,2,3,5,6] ï¼Œå…¶ä¸­æ–œä½“åŠ ç²—æ ‡æ³¨çš„ä¸º nums1 ä¸­çš„å…ƒç´ ã€‚
+ * ÊäÈë£ºnums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+ * Êä³ö£º[1,2,2,3,5,6]
+ * ½âÊÍ£ºĞèÒªºÏ²¢ [1,2,3] ºÍ [2,5,6] ¡£
+ * ºÏ²¢½á¹ûÊÇ [1,2,2,3,5,6] £¬ÆäÖĞĞ±Ìå¼Ó´Ö±ê×¢µÄÎª nums1 ÖĞµÄÔªËØ¡£
  *
- * è§£æ³•ä¸€ã€ç›´æ¥åˆå¹¶ä¹‹åè¿›è¡Œæ’åº
+ * ½â·¨Ò»¡¢Ö±½ÓºÏ²¢Ö®ºó½øĞĞÅÅĞò
  */
 void merge(vector<int> &nums1, int m, vector<int> &nums2, int n) {
     int diff_len=nums1.size()-nums2.size();
@@ -247,14 +247,14 @@ void merge2(vector<int> &nums1, int m, vector<int> &nums2, int n) {
     int right{0};
     int pos{0};
     while(pos<m+n){
-        //ç°åœ¨å°±æ˜¯è¦è§£å†³å…¶ä¸­ä¸€ä¸ªè¯»åˆ°äº†æœ€åï¼Œåé¢ä¸€ä¸ª
-        if(right>=n || nums1[left]<=nums2[right] && nums1[left]!=0){//å‰é¢æ²¡æœ‰è€ƒè™‘åˆ°0çš„æƒ…å†µ
-            //å°†å°äºçš„æ”¾è¿›å»
+        //ÏÖÔÚ¾ÍÊÇÒª½â¾öÆäÖĞÒ»¸ö¶Áµ½ÁË×îºó£¬ºóÃæÒ»¸ö
+        if(right>=n || nums1[left]<=nums2[right] && nums1[left]!=0){//Ç°ÃæÃ»ÓĞ¿¼ÂÇµ½0µÄÇé¿ö
+            //½«Ğ¡ÓÚµÄ·Å½øÈ¥
             sorted[pos++]=nums1[left++];
             std::cout<<"pos:"<<pos<<"  "<<sorted[pos-1]<<"  left:"<<left<<"  right:"<<right<<"  pos:"<<pos<<endl;
         }
         else{
-            //å°†å°äºçš„æ”¾è¿›å»
+            //½«Ğ¡ÓÚµÄ·Å½øÈ¥
             sorted[pos++]=nums2[right++];
             std::cout<<"pos:"<<pos<<"  "<<sorted[pos-1]<<"  left:"<<left<<"  right:"<<right<<"  pos:"<<pos<<endl;
         }
@@ -268,12 +268,12 @@ void merge2(vector<int> &nums1, int m, vector<int> &nums2, int n) {
 void merge3(vector<int> &nums1, int m, vector<int> &nums2, int n) {
         int p1 = 0, p2 = 0;
         int sorted[m + n];
-        int cur;//æ ‡å°ºï¼šsortedæ‰€åœ¨çš„ä½ç½®
+        int cur;//±ê³ß£ºsortedËùÔÚµÄÎ»ÖÃ
         while (p1 < m || p2 < n) {
             if (p1 == m) {
-                cur = nums2[p2++];//é‚£è¾¹ä¼šä¸€ç›´++
+                cur = nums2[p2++];//ÄÇ±ß»áÒ»Ö±++
             } else if (p2 == n) {
-                cur = nums1[p1++];//p1ä¼šä¸€ç›´++
+                cur = nums1[p1++];//p1»áÒ»Ö±++
             } else if (nums1[p1] < nums2[p2]) {
                 cur = nums1[p1++];
             } else {
@@ -287,20 +287,20 @@ void merge3(vector<int> &nums1, int m, vector<int> &nums2, int n) {
     }
 
     /*
-     * è¾“å…¥ï¼šnums = [-1,0,1,2,-1,-4]
-     * è¾“å‡ºï¼š[[-1,-1,2],[-1,0,1]]
-     * è§£é‡Šï¼š
-         * nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0 ã€‚
-         * nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 ã€‚
-         * nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 ã€‚
-         * ä¸åŒçš„ä¸‰å…ƒç»„æ˜¯ [-1,0,1] å’Œ [-1,-1,2] ã€‚
-         * æ³¨æ„ï¼Œè¾“å‡ºçš„é¡ºåºå’Œä¸‰å…ƒç»„çš„é¡ºåºå¹¶ä¸é‡è¦ã€‚
+     * ÊäÈë£ºnums = [-1,0,1,2,-1,-4]
+     * Êä³ö£º[[-1,-1,2],[-1,0,1]]
+     * ½âÊÍ£º
+         * nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0 ¡£
+         * nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 ¡£
+         * nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 ¡£
+         * ²»Í¬µÄÈıÔª×éÊÇ [-1,0,1] ºÍ [-1,-1,2] ¡£
+         * ×¢Òâ£¬Êä³öµÄË³ĞòºÍÈıÔª×éµÄË³Ğò²¢²»ÖØÒª¡£
      */
 vector<vector<int>> threeSum(vector<int> &nums) {
-    //ä½¿ç”¨leftå’Œrightåˆ†åˆ«åœ¨æ•°ç»„å‰åè¿›è¡Œç§»åŠ¨ï¼Œç¬¬ä¸‰ä¸ªå…ƒç´ å°±è¿›è¡Œå›ºå®š
-    //å…ˆè¿›è¡Œæ’åº
+    //Ê¹ÓÃleftºÍright·Ö±ğÔÚÊı×éÇ°ºó½øĞĞÒÆ¶¯£¬µÚÈı¸öÔªËØ¾Í½øĞĞ¹Ì¶¨
+    //ÏÈ½øĞĞÅÅĞò
     std::sort(nums.begin(),nums.end());
-    for(auto tmp:nums){//çœ‹çœ‹æ’åºä¹‹åçš„ç»“æœ
+    for(auto tmp:nums){//¿´¿´ÅÅĞòÖ®ºóµÄ½á¹û
         cout<<tmp<<endl;
     }
 
@@ -309,7 +309,7 @@ vector<vector<int>> threeSum(vector<int> &nums) {
     int flag_0{1};
     bool first_flag= true;
     for(int i=0;i<nums.size() ;++i){
-        if(nums[i]==0 ){//è¿™é‡Œä¸º0å°±ä¸ä¼šåˆ°ä¸‹é¢è€ƒè™‘äº†
+        if(nums[i]==0 ){//ÕâÀïÎª0¾Í²»»áµ½ÏÂÃæ¿¼ÂÇÁË
             flag_0++;
         }
 
@@ -319,13 +319,13 @@ vector<vector<int>> threeSum(vector<int> &nums) {
         int left{i};
         int right{static_cast<int>(nums.size()-1)};
         while(left<right){
-            //å›ºå®šç¬¬ä¸‰ä¸ªå…ƒç´ ä¸ºiå…ƒç´ 
+            //¹Ì¶¨µÚÈı¸öÔªËØÎªiÔªËØ
             if(left==i)
                 left++;
             else if(right==i)
                 right--;
             else{
-                //éå†ä¸¤ä¸¤å…ƒç´ 
+                //±éÀúÁ½Á½ÔªËØ
                 if((nums[i]+nums[left]+nums[right])==0){
                     vector<int>tmp{nums[i],nums[left],nums[right]};
                     result.push_back(tmp);
@@ -363,19 +363,19 @@ vector<vector<int>> threeSum(vector<int> &nums) {
     return result;
 }
 
-//ä½¿ç”¨å®˜æ–¹çš„æ€è·¯è‡ªå·±å¤ç°
+//Ê¹ÓÃ¹Ù·½µÄË¼Â·×Ô¼º¸´ÏÖ
 /*
 nums.sort()
 for first = 0 .. n-1
     if first == 0 or nums[first] != nums[first-1] then
-        // ç¬¬ä¸‰é‡å¾ªç¯å¯¹åº”çš„æŒ‡é’ˆ
+        // µÚÈıÖØÑ­»·¶ÔÓ¦µÄÖ¸Õë
         third = n-1
         for second = first+1 .. n-1
             if second == first+1 or nums[second] != nums[second-1] then
-                // å‘å·¦ç§»åŠ¨æŒ‡é’ˆï¼Œç›´åˆ° a+b+c ä¸å¤§äº 0
+                // Ïò×óÒÆ¶¯Ö¸Õë£¬Ö±µ½ a+b+c ²»´óÓÚ 0
                 while nums[first]+nums[second]+nums[third] > 0
                     third = third-1
-                // åˆ¤æ–­æ˜¯å¦æœ‰ a+b+c==0
+                // ÅĞ¶ÏÊÇ·ñÓĞ a+b+c==0
                 check(first, second, third)
                 -4,-1,-1,0,1,2
  */
@@ -384,27 +384,27 @@ vector<vector<int>> threeSum2(vector<int> &nums) {
     int n=nums.size();
     vector<vector<int>>result;
     for (int first = 0 ;first<=n-1;first++){
-        //è¿™é‡Œä¹‹æ‰€æ˜¯è¦firstå¤§äº0ï¼Œæ˜¯ç”±äºåé¢æ¯”è¾ƒçš„æ˜¯first-1ï¼Œå¦‚æœæ²¡æœ‰å¤§äºåˆå§‹å€¼ï¼Œé‚£ä¹ˆfirstèŒƒå›´å°±ä¼šä¸å¯¹
-        //ä½†æ˜¯ç¬¬ä¸€ä¸ªè‚¯å®šæ˜¯è¦å‚åŠ è®¡ç®—çš„ï¼Œä¹Ÿä¸å­˜åœ¨é‡å¤ï¼Œæ‰€ä»¥ç¬¬ä¸€ä¸ªä¹Ÿè¦è€ƒè™‘è¿›å»ï¼Œä¹Ÿå°±æ˜¯||çš„æ¡ä»¶
-        if( (first >0 && nums[first] != nums[first-1])||first==0){//TODO: ä¹‹å‰æ˜¯first == 0ï¼Œæ²¡æœ‰è¦†ç›–æƒ…å†µ   éœ€è¦å¤§äº0æ˜¯ä¸ºäº†first-1çš„é—®é¢˜
-            // ç¬¬ä¸‰é‡å¾ªç¯å¯¹åº”çš„æŒ‡é’ˆ
+        //ÕâÀïÖ®ËùÊÇÒªfirst´óÓÚ0£¬ÊÇÓÉÓÚºóÃæ±È½ÏµÄÊÇfirst-1£¬Èç¹ûÃ»ÓĞ´óÓÚ³õÊ¼Öµ£¬ÄÇÃ´first·¶Î§¾Í»á²»¶Ô
+        //µ«ÊÇµÚÒ»¸ö¿Ï¶¨ÊÇÒª²Î¼Ó¼ÆËãµÄ£¬Ò²²»´æÔÚÖØ¸´£¬ËùÒÔµÚÒ»¸öÒ²Òª¿¼ÂÇ½øÈ¥£¬Ò²¾ÍÊÇ||µÄÌõ¼ş
+        if( (first >0 && nums[first] != nums[first-1])||first==0){//TODO: Ö®Ç°ÊÇfirst == 0£¬Ã»ÓĞ¸²¸ÇÇé¿ö   ĞèÒª´óÓÚ0ÊÇÎªÁËfirst-1µÄÎÊÌâ
+            // µÚÈıÖØÑ­»·¶ÔÓ¦µÄÖ¸Õë
             int third = n-1;
             for(int second = first+1;second <=n-1;second++){
 
-                if((second>first+1 && nums[second]!=nums[second-1])||(second==first+1)) {//TODO: ä¹‹å‰æ˜¯second==first+1ï¼Œæ²¡æœ‰è¦†ç›–æƒ…å†µ
-                    // å‘å·¦ç§»åŠ¨æŒ‡é’ˆï¼Œç›´åˆ° a+b+c ä¸å¤§äº 0
+                if((second>first+1 && nums[second]!=nums[second-1])||(second==first+1)) {//TODO: Ö®Ç°ÊÇsecond==first+1£¬Ã»ÓĞ¸²¸ÇÇé¿ö
+                    // Ïò×óÒÆ¶¯Ö¸Õë£¬Ö±µ½ a+b+c ²»´óÓÚ 0
                     while (nums[first] + nums[second] + nums[third] > 0 && third > second) {
-                        cout << "éå†å…ƒç´ " << first << second <<third<< endl;
+                        cout << "±éÀúÔªËØ" << first << second <<third<< endl;
                         third = third - 1;
 
                     }
 
-                    // åˆ¤æ–­æ˜¯å¦æœ‰ a+b+c==0
+                    // ÅĞ¶ÏÊÇ·ñÓĞ a+b+c==0
                     if (nums[first] + nums[second] + nums[third] == 0 && third > second) {
-                        //åŠ å…¥åˆ—è¡¨;
+                        //¼ÓÈëÁĞ±í;
                         result.push_back(vector<int>{nums[first], nums[second], nums[third]});
                         cout << nums[first] << "  " << nums[second] << "  " << nums[third] << endl;
-                        continue;//TODO: ä¹‹å‰æ˜¯ç›´æ¥breakè·³å‡ºå¾ªç¯äº†ï¼Œé‚£ä¹ˆå°±è®¡ç®—ä¸å‡ºæ‰€æœ‰çš„ç»“æœ
+                        continue;//TODO: Ö®Ç°ÊÇÖ±½ÓbreakÌø³öÑ­»·ÁË£¬ÄÇÃ´¾Í¼ÆËã²»³öËùÓĞµÄ½á¹û
                     }
                 }
             }
@@ -414,7 +414,7 @@ vector<vector<int>> threeSum2(vector<int> &nums) {
 
     return result;
 }
-//TODO: å†™ä¸€ä¸ªåšå®¢å¢åŠ å¯¹å…¶çš„ç†è§£
+//TODO: Ğ´Ò»¸ö²©¿ÍÔö¼Ó¶ÔÆäµÄÀí½â
 
 
 

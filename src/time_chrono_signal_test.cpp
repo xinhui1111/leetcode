@@ -87,6 +87,6 @@ __attribute__((unused)) int main_time_chrono_signal_test()//__attribute__((unuse
     std::cout << " seconds.\n";
     //system("pause");//windows下的暂停函数
     //linux下的暂停函数
-    pause();
+    //pause();
     return 0;
 }
